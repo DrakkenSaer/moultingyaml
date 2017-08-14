@@ -6,7 +6,7 @@ import scala.collection.JavaConversions._
 /**
  * The general type of a YAML AST node.
  */
-sealed abstract class YamlValue {
+abstract class YamlValue {
   def convertTo[A](implicit reader: YamlReader[A]): A = reader.read(this)
 
   def asYamlObject(errorMsg: String = "YAML object expected"): YamlObject =
